@@ -46,8 +46,35 @@ Web用画像は以下の基準で最適化すること：
 - **作品カバー画像**: 縦800px統一、JPEG品質70-80%
 - **ヒーロー画像**: 縦800px、JPEG品質70%
 - **プロフィール画像**: 最大幅300px、PNG
+- **プログラミングセクション用画像**: 1200x800px（3:2比率）、50-100KB、JPEG品質90%
 - **ファイルサイズ**: 1つの画像は500KB以下を目標
 - **総画像サイズ**: ページ全体で2MB以下に抑制
+
+#### images_sampleから画像を移動する際の処理手順
+
+1. **リネーム**: 日本語ファイル名を英語に変更
+   ```bash
+   # 例: 炎上シミュレーター.jpg → enjo-simulator-screenshot.jpg
+   mv "images_sample/炎上シミュレーター.jpg" "images/enjo-simulator-screenshot.jpg"
+   ```
+
+2. **リサイズ**: 適切な解像度に調整（Web表示用）
+   ```bash
+   # 最大1200px幅にリサイズ
+   sips -Z 1200 "images/enjo-simulator-screenshot.jpg"
+   ```
+
+3. **クロップ**: カードレイアウトに適したアスペクト比に調整
+   ```bash
+   # 1200x800px（3:2比率）にクロップ
+   sips -c 800 1200 "images/enjo-simulator-screenshot.jpg"
+   ```
+
+4. **品質調整**: ファイルサイズ50-100KB目標でJPEG品質を調整
+   ```bash
+   # JPEG品質90%に設定
+   sips -s formatOptions 90 "images/enjo-simulator-screenshot.jpg"
+   ```
 
 sipsコマンドの使用例：
 ```bash

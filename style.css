@@ -473,70 +473,83 @@ body {
 }
 
 .programming-item {
-    background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    border-radius: 15px;
+    transition: all 0.3s ease;
     border: 2px solid transparent;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .programming-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
     border-color: #667eea;
 }
 
-.programming-visual {
-    position: relative;
-    padding: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.programming-cover-link {
+    display: block;
+    text-decoration: none;
+    width: 100%;
 }
 
-.programming-icon {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 2rem;
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.programming-screenshot {
-    width: 180px;
-    aspect-ratio: 1 / 1.4;
+.programming-cover {
+    width: 100%;
+    height: 250px;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    transition: transform 0.3s ease;
 }
 
-.programming-content {
-    padding: 2rem;
+.programming-cover-link:hover .programming-cover {
+    transform: scale(1.05);
 }
 
-.programming-content h3 {
+.programming-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.programming-info h3 {
     font-size: 1.3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: #2c3e50;
+    font-weight: 700;
 }
 
-.programming-content p {
+.programming-info p {
     color: #666;
     margin-bottom: 1.5rem;
     line-height: 1.6;
     font-size: 0.95rem;
+    flex: 1;
+}
+
+.programming-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.badge.programming {
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.badge.programming:hover {
+    background: #5a6fd8;
+    transform: translateY(-1px);
 }
 
 .programming-link {

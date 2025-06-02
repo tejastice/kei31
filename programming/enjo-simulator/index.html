@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>炎上シミュレーター | SNS炎上体験ツール</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-layout">
+        <!-- サイドバー -->
+        <div class="sidebar">
+            <div class="sidebar-logo">K</div>
+            <nav>
+                <ul class="sidebar-nav">
+                    <li><a href="#"><span class="icon">🏠</span>ホーム</a></li>
+                    <li><a href="#"><span class="icon">🔍</span>話題を検索</a></li>
+                    <li><a href="#"><span class="icon">🔔<span class="notification-badge" id="notificationBadge">0</span></span>通知</a></li>
+                    <li><a href="#"><span class="icon">✉️</span>メッセージ</a></li>
+                    <li><a href="#"><span class="icon">🔖</span>ブックマーク</a></li>
+                    <li><a href="#"><span class="icon">👤</span>プロフィール</a></li>
+                    <li><a href="#"><span class="icon">⚙️</span>設定</a></li>
+                </ul>
+            </nav>
+            <a href="../../index.html" class="home-button">🏠 けいすけのサイトに戻る</a>
+        </div>
+
+        <!-- メインコンテンツ -->
+        <div class="container">
+            <!-- ヘッダー -->
+            <header class="header">
+                <div class="header-content">
+                    <h1>🔥 炎上シミュレーター</h1>
+                    <p class="disclaimer">※これはシミュレーションです。実際のSNSではありません。</p>
+                </div>
+            </header>
+
+        <!-- 炎上度メーター -->
+        <div class="flame-meter">
+            <div class="meter-label">炎上度</div>
+            <div class="meter-bar">
+                <div class="meter-fill" id="flameMeter"></div>
+            </div>
+            <div class="meter-text" id="flameText">0%</div>
+        </div>
+
+        <!-- 投稿エリア -->
+        <div class="post-area">
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <div class="user-details">
+                    <div class="username">あなた</div>
+                    <div class="handle">@user_simulator</div>
+                </div>
+            </div>
+            <textarea id="postInput" placeholder="今何してる？"></textarea>
+            <div class="post-actions">
+                <button id="postButton" class="post-button">投稿する</button>
+                <button id="resetButton" class="reset-button">リセット</button>
+            </div>
+        </div>
+
+        <!-- 対応選択肢（炎上後に表示） -->
+        <div class="response-options" id="responseOptions" style="display: none;">
+            <h3>🚨 炎上してしまいました！どう対応しますか？</h3>
+            <div class="options">
+                <button class="option-button" data-action="apologize">謝罪ツイートをする</button>
+                <button class="option-button" data-action="excuse">言い訳をする</button>
+                <button class="option-button" data-action="dogeza">土下座ツイートをする</button>
+                <button class="option-button" data-action="ignore">無視を決め込む</button>
+                <button class="option-button" data-action="delete">ツイートを削除する</button>
+                <button class="option-button" data-action="fight">反論する</button>
+            </div>
+        </div>
+
+        <!-- タイムライン -->
+        <div class="timeline" id="timeline">
+        </div>
+
+        <!-- 警告メッセージ -->
+        <div class="warning">
+            <p>⚠️ このシミュレーターは教育目的で作成されています。</p>
+            <p>実際のSNSでの炎上は深刻な問題です。適切なSNS利用を心がけましょう。</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

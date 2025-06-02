@@ -1,0 +1,519 @@
+/* 炎上シミュレーター CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+    background: #000000;
+    color: #e7e9ea;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.main-layout {
+    display: flex;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    width: 275px;
+    background: #000000;
+    border-right: 1px solid #2f3336;
+    padding: 1rem;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar-logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    padding-left: 0.75rem;
+}
+
+.sidebar-nav {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 25px;
+    color: #e7e9ea;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 400;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+    background: #1d1f23;
+}
+
+.sidebar-nav .icon {
+    width: 24px;
+    margin-right: 1rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #f91880;
+    color: white;
+    border-radius: 50%;
+    min-width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000000;
+    animation: pulse-notification 2s infinite;
+}
+
+.notification-badge.hidden {
+    display: none;
+}
+
+@keyframes pulse-notification {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.container {
+    width: 600px;
+    margin-left: 275px;
+    min-height: 100vh;
+    border-right: 1px solid #2f3336;
+    background: #000000;
+}
+
+
+/* ヘッダー */
+.header {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 1rem;
+    border-bottom: 1px solid #2f3336;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.header h1 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.disclaimer {
+    font-size: 0.75rem;
+    color: #71767b;
+    margin-top: 0.25rem;
+}
+
+.home-button {
+    background: #1d9bf0;
+    color: white;
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.home-button:hover {
+    background: #1a8cd8;
+}
+
+/* 炎上度メーター */
+.flame-meter {
+    display: none;
+}
+
+/* 投稿エリア */
+.post-area {
+    background: #000000;
+    padding: 1rem;
+    border-bottom: 1px solid #2f3336;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1d9bf0, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.username {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.handle {
+    color: #71767b;
+    font-size: 0.9rem;
+}
+
+#postInput {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #e7e9ea;
+    font-size: 1.25rem;
+    resize: vertical;
+    min-height: 80px;
+    padding: 1rem 0;
+    outline: none;
+    font-family: inherit;
+}
+
+#postInput::placeholder {
+    color: #71767b;
+    font-size: 1.25rem;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.post-button {
+    background: #1d9bf0;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.post-button:hover:not(:disabled) {
+    background: #1a8cd8;
+}
+
+.post-button:disabled {
+    background: #2f3336;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.reset-button {
+    background: transparent;
+    color: #71767b;
+    border: 1px solid #2f3336;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+    background: #0f1419;
+    border-color: #71767b;
+    color: #e7e9ea;
+}
+
+/* 対応選択肢 */
+.response-options {
+    background: #991b1b;
+    padding: 1rem;
+    border-bottom: 1px solid #2f3336;
+    animation: pulse 2s infinite;
+    border-top: 3px solid #dc2626;
+}
+
+.response-options h3 {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #fecaca;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+}
+
+.option-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fecaca;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.option-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* タイムライン */
+.timeline {
+    background: #000000;
+}
+
+.tweet {
+    background: #000000;
+    border-bottom: 1px solid #2f3336;
+    padding: 1rem;
+    animation: slideIn 0.4s ease;
+    transition: background-color 0.2s ease;
+}
+
+.tweet:hover {
+    background: #080808;
+}
+
+.tweet.user-tweet {
+    background: #0a0a0a;
+}
+
+.tweet.user-tweet:hover {
+    background: #0f0f0f;
+}
+
+.tweet.news-tweet {
+    background: #1a0f0a;
+    border-left: 4px solid #f91880;
+}
+
+.tweet.trending {
+    background: #0f0a0a;
+    border-left: 4px solid #ff0000;
+}
+
+.tweet.promo-tweet {
+    background: #0a0f1a;
+    border-left: 4px solid #1d9bf0;
+}
+
+.tweet.media-tweet {
+    background: #1a0a1a;
+    border-left: 4px solid #8b5cf6;
+}
+
+.tweet-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.tweet-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tweet-avatar-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.tweet-user {
+    flex: 1;
+}
+
+.tweet-username {
+    font-weight: bold;
+}
+
+.tweet-handle {
+    color: #8899a6;
+    font-size: 0.9rem;
+}
+
+.tweet-time {
+    color: #8899a6;
+    font-size: 0.8rem;
+}
+
+.tweet-content {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.tweet-content a {
+    color: #1d9bf0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.tweet-content a:hover {
+    color: #1a8cd8;
+    text-decoration: underline;
+}
+
+.tweet-actions {
+    display: flex;
+    gap: 2rem;
+    color: #8899a6;
+    font-size: 0.9rem;
+}
+
+.tweet-action {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.quote-tweet {
+    border: 1px solid #38444d;
+    border-radius: 15px;
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 警告メッセージ */
+.warning {
+    background: #2d1b20;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #ffcc99;
+    border-top: 1px solid #38444d;
+}
+
+/* レスポンシブ */
+@media (max-width: 1225px) {
+    .main-layout {
+        max-width: 875px;
+    }
+}
+
+@media (max-width: 875px) {
+    .sidebar {
+        width: 80px;
+    }
+    
+    .sidebar-nav a {
+        padding: 0.75rem;
+        justify-content: center;
+    }
+    
+    .sidebar-nav .icon {
+        margin-right: 0;
+    }
+    
+    .sidebar-nav a span:not(.icon) {
+        display: none;
+    }
+    
+    .home-button {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .container {
+        margin-left: 80px;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
+    
+    .container {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .main-layout {
+        max-width: 100%;
+    }
+    
+    
+    .options {
+        grid-template-columns: 1fr;
+    }
+    
+    .post-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
