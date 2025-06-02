@@ -141,6 +141,8 @@ body {
 .hero-buttons {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .btn {
@@ -153,6 +155,8 @@ body {
     border: none;
     cursor: pointer;
     font-size: 1rem;
+    white-space: nowrap;
+    min-width: fit-content;
 }
 
 .btn-primary {
@@ -175,8 +179,20 @@ body {
 }
 
 .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn-tertiary {
     background: transparent;
     color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-tertiary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
@@ -303,8 +319,10 @@ body {
 
 .works-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .work-item {
@@ -326,6 +344,20 @@ body {
 }
 
 .work-item.featured::before {
+    content: '🆕 NEW';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.work-item.bestseller::before {
     content: '🏆 BESTSELLER';
     position: absolute;
     top: 15px;
@@ -339,14 +371,24 @@ body {
     z-index: 2;
 }
 
+.work-cover-link {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.work-cover-link:hover {
+    transform: scale(1.05);
+}
+
 .work-cover {
     width: 100%;
-    height: 250px;
+    aspect-ratio: 1 / 1.4;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .work-placeholder {
-    height: 250px;
+    aspect-ratio: 1 / 1.4;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
     flex-direction: column;
@@ -362,12 +404,12 @@ body {
 }
 
 .work-info {
-    padding: 2rem;
+    padding: 1.2rem;
 }
 
 .work-info h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
     color: #2c3e50;
     line-height: 1.4;
 }
@@ -399,6 +441,23 @@ body {
 .badge.reviews {
     background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
     color: white;
+}
+
+.badge.new {
+    background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
+    color: white;
+}
+
+.badge.amazon {
+    background: linear-gradient(135deg, #ff9900 0%, #ff8c00 100%);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.badge.amazon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
 }
 
 /* ツール */
@@ -475,26 +534,57 @@ body {
 
 .step-item {
     display: grid;
-    grid-template-columns: 80px 1fr;
+    grid-template-columns: 200px 1fr;
     gap: 2rem;
     align-items: center;
     background: white;
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.step-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .step-number {
-    width: 80px;
-    height: 80px;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.step-image {
+    width: 160px;
+    aspect-ratio: 1 / 1.4;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.step-image:hover {
+    transform: scale(1.05);
 }
 
 .step-content h3 {
@@ -506,6 +596,73 @@ body {
 .step-content p {
     color: #666;
     line-height: 1.6;
+}
+
+/* 制作過程CTA */
+.process-cta {
+    margin-top: 4rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    color: white;
+}
+
+.cta-content {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 3rem;
+    align-items: center;
+}
+
+.cta-text {
+    text-align: left;
+}
+
+.cta-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.cta-text p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-manga {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.manga-sample {
+    width: 180px;
+    aspect-ratio: 1 / 1.4;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.manga-sample:hover {
+    transform: scale(1.05);
+}
+
+.btn-video {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    font-size: 1.1rem;
+    padding: 1.2rem 2.5rem;
+}
+
+.btn-video:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 /* お問い合わせ */
@@ -571,6 +728,14 @@ body {
 .contact-text {
     font-weight: 600;
     color: #2c3e50;
+}
+
+.contact-profile-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #667eea;
 }
 
 /* フッター */
@@ -655,6 +820,29 @@ body {
     .step-item {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+    
+    .step-visual {
+        margin-bottom: 1rem;
+    }
+    
+    .step-image {
+        width: 200px;
+        aspect-ratio: 1 / 1.4;
+    }
+    
+    .cta-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .cta-text {
+        text-align: center;
+    }
+    
+    .manga-sample {
+        width: 200px;
     }
     
     .contact-methods {

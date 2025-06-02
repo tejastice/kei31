@@ -129,12 +129,20 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                img.style.opacity = '0';
-                img.style.transition = 'opacity 0.3s ease';
                 
-                img.onload = function() {
+                // 画像が既に読み込まれている場合はそのまま表示
+                if (img.complete && img.naturalHeight !== 0) {
                     img.style.opacity = '1';
-                };
+                    img.style.transition = 'opacity 0.3s ease';
+                } else {
+                    // 画像がまだ読み込まれていない場合のみ透明にして読み込み待ち
+                    img.style.opacity = '0';
+                    img.style.transition = 'opacity 0.3s ease';
+                    
+                    img.onload = function() {
+                        img.style.opacity = '1';
+                    };
+                }
                 
                 imageObserver.unobserve(img);
             }
