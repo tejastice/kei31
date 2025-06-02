@@ -109,7 +109,7 @@ class MetaTagChecker {
         }
         
         // すべてのプロキシが失敗した場合
-        throw new Error(`アクセスできませんでした。CORS制限により一部のサイトは取得できません。\n最後のエラー: ${lastError.message}`);
+        throw new Error('アクセス規制があって見られないよ！');
     }
 
     extractMetaTags(doc) {
