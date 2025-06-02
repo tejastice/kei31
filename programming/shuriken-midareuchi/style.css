@@ -28,6 +28,38 @@ body {
     margin-bottom: 30px;
 }
 
+.header-nav-mobile {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.home-button-mobile {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 107, 107, 0.1);
+    color: #ff6b6b;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+.home-button-mobile:hover {
+    background: rgba(255, 107, 107, 0.2);
+    transform: translateY(-1px);
+}
+
+.home-button-mobile .home-icon {
+    font-size: 1rem;
+}
+
 .nav-controls {
     position: absolute;
     top: 0;
@@ -482,6 +514,14 @@ h1 {
 }
 
 @media (max-width: 768px) {
+    .header-nav-mobile {
+        display: block;
+    }
+    
+    .nav-controls {
+        display: none;
+    }
+    
     .main-content {
         flex-direction: column;
         align-items: center;
@@ -519,18 +559,5 @@ h1 {
     
     .toggle-button {
         width: 100%;
-    }
-    
-    .home-btn {
-        padding: 0.6rem 0.9rem;
-        font-size: 0.8rem;
-    }
-    
-    .home-text {
-        display: none;
-    }
-    
-    .home-icon {
-        font-size: 1.3rem;
     }
 }

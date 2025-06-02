@@ -126,6 +126,38 @@ body {
     justify-content: space-between;
 }
 
+.header-nav-mobile {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+}
+
+.home-button-mobile {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(29, 161, 242, 0.1);
+    color: #1da1f2;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(29, 161, 242, 0.2);
+}
+
+.home-button-mobile:hover {
+    background: rgba(29, 161, 242, 0.2);
+    transform: translateY(-1px);
+}
+
+.home-icon {
+    font-size: 1rem;
+}
+
 .header-content {
     display: flex;
     flex-direction: column;
@@ -494,6 +526,10 @@ body {
 }
 
 @media (max-width: 600px) {
+    .header-nav-mobile {
+        display: block;
+    }
+    
     .sidebar {
         display: none;
     }
