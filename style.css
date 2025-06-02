@@ -551,6 +551,19 @@ body {
     box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
 }
 
+.contact-link {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+}
+
 .contact-icon {
     font-size: 2rem;
 }
