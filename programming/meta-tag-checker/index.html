@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Tag Checker | メタタグチェッカー</title>
+    <meta name="description" content="WebサイトのメタタグをチェックしてSEO最適化をサポートするツールです。">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🔍 Meta Tag Checker</h1>
+            <p>WebサイトのメタタグをチェックしてSEO最適化をサポート</p>
+        </header>
+
+        <main class="main">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="urlInput">チェックするURL</label>
+                    <input 
+                        type="url" 
+                        id="urlInput" 
+                        placeholder="https://example.com"
+                        required
+                    >
+                    <button id="checkButton" type="button">
+                        <span class="button-text">チェック</span>
+                        <span class="loading" style="display: none;">チェック中...</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="results" class="results-section" style="display: none;">
+                <div class="results-header">
+                    <h2>メタタグ一覧</h2>
+                    <div class="url-info">
+                        <span id="checkedUrl"></span>
+                    </div>
+                </div>
+
+                <div class="meta-tags-container">
+                    <div class="meta-category">
+                        <h3>📄 基本メタタグ</h3>
+                        <div id="basicMeta" class="meta-list"></div>
+                    </div>
+
+                    <div class="meta-category">
+                        <h3>📱 Open Graph タグ</h3>
+                        <div id="ogMeta" class="meta-list"></div>
+                    </div>
+
+                    <div class="meta-category">
+                        <h3>🐦 Twitter Card タグ</h3>
+                        <div id="twitterMeta" class="meta-list"></div>
+                    </div>
+
+                    <div class="meta-category">
+                        <h3>⚙️ その他のメタタグ</h3>
+                        <div id="otherMeta" class="meta-list"></div>
+                    </div>
+                </div>
+
+                <div class="preview-section">
+                    <h2>📱 SNS プレビュー</h2>
+                    <div class="preview-disclaimer">
+                        <p>※ 表記は各SNSの実際の表示に似せていますが、完全に同一ではありません。参考程度にご利用ください。</p>
+                    </div>
+                    
+                    <div class="preview-grid">
+                        <div class="preview-item">
+                            <h3>🐦 X (Twitter)</h3>
+                            <div id="twitterPreview" class="preview-content">
+                                <div class="preview-placeholder">
+                                    <p>上記のメタタグ情報からXでの表示をシミュレーションします</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="preview-item">
+                            <h3>📱 Threads</h3>
+                            <div id="threadsPreview" class="preview-content">
+                                <div class="preview-placeholder">
+                                    <p>上記のメタタグ情報からThreadsでの表示をシミュレーションします</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="preview-item">
+                            <h3>🎮 Discord</h3>
+                            <div id="discordPreview" class="preview-content">
+                                <div class="preview-placeholder">
+                                    <p>上記のメタタグ情報からDiscordでの表示をシミュレーションします</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="preview-item">
+                            <h3>💬 LINE</h3>
+                            <div id="linePreview" class="preview-content">
+                                <div class="preview-placeholder">
+                                    <p>上記のメタタグ情報からLINEでの表示をシミュレーションします</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="error" class="error-section" style="display: none;">
+                <div class="error-message">
+                    <h3>⚠️ エラーが発生しました</h3>
+                    <p id="errorText"></p>
+                    <div class="error-help">
+                        <h4>💡 対処法</h4>
+                        <ul>
+                            <li>URLが正しく入力されているか確認してください</li>
+                            <li>一部のサイト（note.com等）はCORS制限により取得できない場合があります</li>
+                            <li>しばらく時間をおいて再度お試しください</li>
+                            <li>別のURLでテストしてみてください（例: https://example.com）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
