@@ -158,3 +158,50 @@ manga/
 **作成日**: 2025年6月3日  
 **作成者**: AIマンガ家けいすけ  
 **バージョン**: 1.0
+
+
+## 掲載するマンガと掲載順
+
+最新刊には、27巻 AIの進化を表示してください
+
+マンガは以下の順で掲載すること
+タイトル, リンク，画像
+AIとCanvaでできる！マンガの作り方	https://amzn.to/4ejIIYe	ai-manga.jpg
+けいすけの秘密基地 27巻 AIの進化	https://amzn.to/3S2HFTv	ksb-27.jpg
+ビットコインを創った人	https://amzn.to/3T2SxRB	satoshi-nakamoto.jpg
+けいすけの秘密基地 26巻 エンジニアが100億回繰り返したこと	https://amzn.to/44ytVY1	ksb-26.jpg
+天才美少女漫画家のありがたい教え: 2巻	https://amzn.to/4kw1O0L	anju-2.jpg
+けいすけの秘密基地 25巻 スパムDMにガツンと言ってやった話	https://amzn.to/3X1yJR9	ksb-25.jpg
+マンガでわかる！XTEPの使い方と応用例	https://amzn.to/4hWh3zc	xtep.jpg
+けいすけの秘密基地 24巻 サラリーマンに〇〇管理術はムダです	https://amzn.to/4fxJG3M	ksb-24.jpg
+マンガで分かる！CanvaとChatGPTでLINEスタンプを作ろう！	https://amzn.to/4hrvYBp	line-sticker.jpg
+けいすけの秘密基地 23巻 売り上げの話をしよう	https://amzn.to/3zCPUQH	ksb-23.jpg
+目指せ収益化！SNSマンガ家のためのマネタイズ戦略	https://amzn.to/3TLVaYS	money.jpg
+けいすけの秘密基地 22巻 マンガをバズらせるために調査した話	https://amzn.to/4eaSgF7	ksb-22.jpg
+Kindleインディーズマンガとフリップトゥーンではじめる！マンガ出版マニュアル	https://amzn.to/4ddxH9Q	manga-manual.jpg
+けいすけの秘密基地 21巻 マンガをバズらせる方法	https://amzn.to/3MIgZVs	ksb-21.jpg
+天才美少女漫画家のありがたい教え: 1巻	https://amzn.to/4d1Jkko	anju-1.jpg
+けいすけの秘密基地 20巻 この人プログラミングに向いてないなと思う瞬間	https://amzn.to/473EYrj	ksb-20.jpg
+けいすけの秘密基地 19巻 エンジニアによくあるヤバい依頼	https://amzn.to/4dQiiNl	ksb-19.jpg
+けいすけの秘密基地 18巻 自分で考えましょう	https://amzn.to/4bUYjvP	ksb-18.jpg
+けいすけの秘密基地 17巻 正論は正しくない	https://amzn.to/3W1vsju	ksb-17.jpg
+心のAボタン押せてますか？	https://amzn.to/4csoB9A	a-button.jpg
+けいすけの秘密基地 16巻 なぜあなたの話はうすっぺらいのか？	https://amzn.to/3W0ZfKt	ksb-16.jpg
+実践的！AIマンガで使えるCanvaテクニック	https://amzn.to/3KUrJiw	canva-tech.jpg
+けいすけの秘密基地 15巻 男と女は永久にわかり合えないことの証明	https://amzn.to/3RlDd2e	ksb-15.jpg
+けいすけの秘密基地 14巻 Aボタン連打主義	https://amzn.to/3VijLo2	ksb-14.jpg
+けいすけの秘密基地 13巻 ああ忙しい	https://amzn.to/3VtmDA4	ksb-13.jpg
+けいすけの秘密基地 12巻 そんな意見は窓から捨てろ	https://amzn.to/4bG0vb0	ksb-12.jpg
+けいすけの秘密基地 11巻 Theさいたま	https://amzn.to/3V7uPph	ksb-11.jpg
+けいすけの秘密基地 10巻 クラスのツンデレ女子がスマホ越しにたまに本音を漏らす件について	https://amzn.to/3UZGnLh	ksb-10.jpg
+AIとプロンプトでできる！マンガに使える衣装・表情・ポーズ	https://amzn.to/3WExnw6	prompt.jpg
+けいすけの秘密基地 9巻 脳筋マンガ家	https://amzn.to/3Wc7IuI	ksb-9.jpg
+けいすけの秘密基地 8巻 黙れジジイ	https://amzn.to/3JlxzJ2	ksb-8.jpg
+けいすけの秘密基地 7巻 マンガの才能	https://amzn.to/4aLS9hu	ksb-7.jpg
+ビットコインの物語	https://amzn.to/49lGGnt	bitcoin.jpg
+けいすけの秘密基地 6巻 ドリルはあるかしら？	https://amzn.to/3x6RpF9	ksb-6.jpg
+けいすけの秘密基地 5巻 成功という毒薬	https://amzn.to/3IBotaH	ksb-5.jpg
+けいすけの秘密基地 4巻 あちらのお客様からク〇リプです	https://amzn.to/3uLg55h	ksb-4.jpg
+けいすけの秘密基地 3巻 決意して1日でマンガ家になりゴリ押しで突き進む話	https://amzn.to/3I7MAxm	ksb-3.jpg
+けいすけの秘密基地 2巻 日常に潜む不思議編	https://amzn.to/3HHkF7p	ksb-2.jpg
+けいすけの秘密基地 1巻 突然ですがAIでマンガを描きました	https://amzn.to/3Sg4nXY	ksb-1.jpg

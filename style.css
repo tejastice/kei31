@@ -371,6 +371,25 @@ body {
     z-index: 2;
 }
 
+.work-item.course {
+    border: 2px solid #4ecdc4;
+    background: linear-gradient(135deg, #f0fffe 0%, #e6fffe 100%);
+}
+
+.work-item.course::before {
+    content: '📚 COURSE';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
 .work-cover-link {
     display: block;
     transition: transform 0.3s ease;
@@ -458,6 +477,23 @@ body {
 .badge.amazon:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
+}
+
+.badge.course {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.badge.register {
+    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.badge.register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
 }
 
 /* セクションもっと見るリンク */

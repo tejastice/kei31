@@ -122,28 +122,16 @@ section h2 {
     text-align: center;
 }
 
-/* 最新刊セクション */
-.featured-section {
-    background: white;
-    border-radius: 20px;
-    padding: 3rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 4rem;
-}
-
-.featured-work {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    max-width: 800px;
-    margin: 0 auto;
+/* 作品セクション */
+.works-section {
+    padding: 2rem 0;
 }
 
 /* 作品グリッド */
 .works-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
@@ -165,6 +153,11 @@ section h2 {
 .work-item.bestseller {
     border: 2px solid #ffd700;
     background: linear-gradient(135deg, #fffbf0 0%, #fff9e6 100%);
+}
+
+.work-item.featured {
+    border: 2px solid #ff6b6b;
+    background: linear-gradient(135deg, #fff0f0 0%, #ffe6e6 100%);
 }
 
 .work-cover-link {
@@ -322,6 +315,13 @@ section h2 {
 }
 
 /* レスポンシブ対応 */
+@media (max-width: 1024px) {
+    .works-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+}
+
 @media (max-width: 768px) {
     .header-nav-mobile {
         display: block;
@@ -344,19 +344,18 @@ section h2 {
         margin-top: 1rem;
     }
     
-    .featured-work {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-    }
-    
     .works-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
     
-    .featured-section {
-        padding: 2rem 1.5rem;
+    .works-section {
+        padding: 1rem 0;
+    }
+    
+    .work-cover {
+        width: 100%;
+        height: auto;
     }
     
     section h2 {
@@ -371,6 +370,18 @@ section h2 {
     
     .subtitle {
         font-size: 1rem;
+    }
+    
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .work-cover {
+        width: 60%;
+        max-width: 200px;
+        margin: 0 auto;
+        display: block;
     }
     
     .work-badges {
