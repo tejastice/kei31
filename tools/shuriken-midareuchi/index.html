@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>忍者手裏剣みだれうち</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <div class="nav-controls">
+                <button onclick="window.location.href='../../index.html'" class="home-btn" title="ホームに戻る">
+                    <span class="home-icon">🏠</span>
+                    <span class="home-text">ホーム</span>
+                </button>
+            </div>
+            <h1>忍者手裏剣みだれうち</h1>
+        </div>
+        
+        <div class="main-content">
+            <!-- 左側：スコア表示 -->
+            <div class="score-panel">
+                <div class="score-display">
+                    <span class="score-label">ポイント</span>
+                    <span id="points" class="score-value">0</span>
+                </div>
+                <div class="sub-stats">
+                    <div class="stat-item">
+                        <span id="total-thrown" class="stat-value">0</span>
+                        <span class="stat-label">投げた手裏剣</span>
+                    </div>
+                    <div class="stat-item">
+                        <span id="per-click" class="stat-value">1</span>
+                        <span class="stat-label">手裏剣/クリック</span>
+                    </div>
+                    <div class="stat-item">
+                        <span id="per-second" class="stat-value">0</span>
+                        <span class="stat-label">手裏剣/秒</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中央：忍者キャラクター -->
+            <div class="game-area">
+                <button id="throw-button" class="throw-button">
+                    <img src="images/ninja.png" alt="忍者" class="ninja-image">
+                </button>
+            </div>
+
+            <!-- 右側：アップグレード -->
+            <div class="upgrades-panel">
+                <div class="upgrades-header">
+                    <h2>アップグレード</h2>
+                    <!-- <button id="toggle-upgrades" class="toggle-button">購入可能のみ表示</button> -->
+                </div>
+                
+                <div id="upgrades-container" class="upgrades-container">
+                    <!-- アップグレードはJavaScriptで動的に生成されます -->
+                </div>
+
+                <div class="controls">
+                    <button id="save-button" class="control-button">💾 セーブ</button>
+                    <button id="reset-button" class="control-button">🔄 リセット</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="shuriken-container" class="shuriken-container"></div>
+    <div id="click-area" class="click-area"></div>
+
+    <script src="game.js"></script>
+</body>
+</html>
