@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buzz Simulator｜バズ体験シミュレーター</title>
+    <meta name="description" content="トップインフルエンサーになったような疑似体験！ちょっとした投稿でも大きくバズる感覚をシミュレーション。好意的な反応とフォロワー増加の爽快感を体験できるエンターテイメントツール。">
+    
+    <!-- Open Graph メタタグ -->
+    <meta property="og:site_name" content="AIマンガ家けいすけ">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:url" content="https://kei31.com/programming/buzz-simulator/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Buzz Simulator｜バズ体験シミュレーター">
+    <meta property="og:description" content="トップインフルエンサーになったような疑似体験！好意的な反応とフォロワー増加の爽快感を体験できるエンターテイメントツール。">
+    <meta property="og:image" content="https://kei31.com/images_sample/meta tag images/buzz-simulator.jpg">
+    <meta property="og:image:alt" content="Buzz Simulatorのスクリーンショット">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter Card メタタグ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@kei31">
+    <meta name="twitter:creator" content="@kei31">
+    <meta name="twitter:title" content="Buzz Simulator｜バズ体験シミュレーター">
+    <meta name="twitter:description" content="トップインフルエンサーになったような疑似体験！好意的な反応とフォロワー増加の爽快感を体験できるエンターテイメントツール。">
+    <meta name="twitter:image" content="https://kei31.com/images_sample/meta tag images/buzz-simulator.jpg">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-layout">
+        <!-- サイドバー -->
+        <div class="sidebar">
+            <div class="sidebar-logo">🌟</div>
+            <nav>
+                <ul class="sidebar-nav">
+                    <li><a href="#"><span class="icon">🏠</span>ホーム</a></li>
+                    <li><a href="#"><span class="icon">🔍</span>話題を検索</a></li>
+                    <li><a href="#"><span class="icon">🔔<span class="notification-badge" id="notificationBadge">0</span></span>通知</a></li>
+                    <li><a href="#"><span class="icon">✉️</span>メッセージ</a></li>
+                    <li><a href="#"><span class="icon">🔖</span>ブックマーク</a></li>
+                    <li><a href="#"><span class="icon">👤</span>プロフィール</a></li>
+                    <li><a href="#" class="follower-menu"><span class="icon">👥</span>フォロワー <span class="follower-count" id="sidebarFollowers">0</span></a></li>
+                </ul>
+            </nav>
+            <a href="../../index.html" class="home-button">🏠 けいすけのサイトに戻る</a>
+        </div>
+
+        <!-- メインコンテンツ -->
+        <div class="container">
+            <!-- ヘッダー -->
+            <header class="header">
+                <div class="header-nav-mobile">
+                    <a href="../../index.html" class="home-button-mobile">
+                        <span class="home-icon">🏠</span>
+                        <span class="home-text">ホームに戻る</span>
+                    </a>
+                </div>
+                <div class="header-content">
+                    <h1>🌟 Buzz Simulator</h1>
+                    <p class="disclaimer">※これはエンターテイメント目的のシミュレーションです。実際のSNSではありません。</p>
+                </div>
+            </header>
+
+            <!-- バズ度メーター -->
+            <div class="flame-meter">
+                <div class="meter-label">バズ度</div>
+                <div class="meter-bar">
+                    <div class="meter-fill" id="buzzMeter"></div>
+                </div>
+                <div class="meter-text" id="buzzText">0%</div>
+            </div>
+
+            <!-- 投稿エリア -->
+            <div class="post-area">
+                <div class="user-info">
+                    <div class="avatar">🌟</div>
+                    <div class="user-details">
+                        <div class="username">あなた</div>
+                        <div class="handle">@superstar</div>
+                    </div>
+                </div>
+                <textarea id="postInput" placeholder="今日もすばらしい一日ですね！あなたの投稿が世界を変える..."></textarea>
+                <div class="post-actions">
+                    <button id="postButton" class="post-button">投稿する</button>
+                    <button id="resetButton" class="reset-button">リセット</button>
+                </div>
+            </div>
+
+            <!-- タイムライン -->
+            <div class="timeline" id="timeline">
+            </div>
+
+            <!-- 警告メッセージ -->
+            <div class="warning">
+                <p>⚠️ このシミュレーターはエンターテイメント目的で作成されています。</p>
+                <p>あなたの投稿が大きな話題になる爽快感を体験してください！</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 達成ポップアップ -->
+    <div class="achievement-popup" id="achievementPopup">
+        <div class="achievement-content">
+            <div class="achievement-icon">🎊</div>
+            <div class="achievement-title" id="achievementTitle"></div>
+            <div class="achievement-description" id="achievementDescription"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

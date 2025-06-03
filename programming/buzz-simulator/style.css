@@ -1,0 +1,751 @@
+/* バズシミュレーター CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 40%, #f5576c 60%, #4facfe 80%, #00f2fe 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.main-layout {
+    display: flex;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    width: 275px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.sidebar-logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    padding-left: 0.75rem;
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sparkle 2s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle {
+    0% { filter: brightness(1) saturate(1); }
+    100% { filter: brightness(1.2) saturate(1.5); }
+}
+
+.sidebar-nav {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 25px;
+    color: #666;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.sidebar-nav a:hover {
+    background: linear-gradient(45deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+    color: #333;
+    transform: translateX(5px);
+}
+
+.sidebar-nav a.active {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.sidebar-nav .icon {
+    width: 24px;
+    margin-right: 1rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+    color: white;
+    border-radius: 50%;
+    min-width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    animation: pulse-notification 2s infinite;
+    box-shadow: 0 2px 10px rgba(240, 147, 251, 0.4);
+}
+
+.notification-badge.hidden {
+    display: none;
+}
+
+@keyframes pulse-notification {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.container {
+    width: 600px;
+    margin-left: 275px;
+    min-height: 100vh;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* ヘッダー */
+.header {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header-nav-mobile {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+}
+
+.home-button-mobile {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(102, 126, 234, 0.2);
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+.home-button-mobile:hover {
+    background: rgba(102, 126, 234, 0.3);
+    transform: translateY(-1px);
+}
+
+.home-icon {
+    font-size: 1rem;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.header h1 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0;
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 3s ease-in-out infinite;
+}
+
+@keyframes rainbow {
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(180deg); }
+}
+
+.disclaimer {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+.home-button {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    color: white;
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 15px rgba(79, 172, 254, 0.3);
+}
+
+.home-button:hover {
+    background: linear-gradient(45deg, #3d9bfd, #00e1fd);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(79, 172, 254, 0.4);
+}
+
+/* バズ度メーター */
+.flame-meter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.meter-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.meter-bar {
+    flex: 1;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4facfe, #00f2fe, #f093fb, #f5576c);
+    background-size: 200% 100%;
+    animation: meterFlow 2s ease-in-out infinite;
+    border-radius: 8px;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+@keyframes meterFlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.meter-level {
+    font-weight: bold;
+    color: #667eea;
+    min-width: 80px;
+    text-align: center;
+}
+
+/* 投稿エリア */
+.post-area {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.username {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.handle {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+#postInput {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    color: #333;
+    font-size: 1.25rem;
+    resize: vertical;
+    min-height: 80px;
+    padding: 1rem;
+    outline: none;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+#postInput:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+#postInput::placeholder {
+    color: #999;
+    font-size: 1.25rem;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.post-button {
+    background: linear-gradient(45deg, #f093fb, #f5576c, #4facfe, #00f2fe);
+    background-size: 200% 200%;
+    animation: buttonGradient 3s ease infinite;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(240, 147, 251, 0.4);
+}
+
+@keyframes buttonGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.post-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(240, 147, 251, 0.6);
+}
+
+.post-button:disabled {
+    background: rgba(200, 200, 200, 0.5);
+    cursor: not-allowed;
+    opacity: 0.5;
+    animation: none;
+}
+
+.reset-button {
+    background: rgba(255, 255, 255, 0.8);
+    color: #667eea;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* 対応選択肢 */
+.response-options {
+    background: linear-gradient(45deg, rgba(245, 87, 108, 0.9), rgba(240, 147, 251, 0.9));
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    animation: pulse 2s infinite;
+    border-top: 3px solid #f5576c;
+    backdrop-filter: blur(10px);
+}
+
+.response-options h3 {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+}
+
+.option-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.75rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.option-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.9; }
+}
+
+/* タイムライン */
+.timeline {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+}
+
+.tweet {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.8rem 1rem;
+    animation: slideIn 0.4s ease;
+    transition: all 0.3s ease;
+    margin-bottom: 1px;
+}
+
+.tweet:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(3px);
+}
+
+.tweet.user-tweet {
+    background: rgba(102, 126, 234, 0.1);
+    border-left: 4px solid #667eea;
+}
+
+.tweet.user-tweet:hover {
+    background: rgba(102, 126, 234, 0.15);
+}
+
+.tweet.news-tweet {
+    background: rgba(245, 87, 108, 0.1);
+    border-left: 4px solid #f5576c;
+}
+
+.tweet.trending {
+    background: rgba(240, 147, 251, 0.1);
+    border-left: 4px solid #f093fb;
+}
+
+.tweet.promo-tweet {
+    background: rgba(79, 172, 254, 0.1);
+    border-left: 4px solid #4facfe;
+}
+
+.tweet.media-tweet {
+    background: rgba(118, 75, 162, 0.1);
+    border-left: 4px solid #764ba2;
+}
+
+.tweet.special-reply {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+    border-left: 4px solid #FFD700;
+    border-top: 2px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 2px 15px rgba(255, 215, 0, 0.2);
+    animation: specialGlow 3s ease-in-out infinite;
+}
+
+.tweet.special-reply:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.15));
+    transform: translateX(5px);
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+}
+
+@keyframes specialGlow {
+    0%, 100% { 
+        box-shadow: 0 2px 15px rgba(255, 215, 0, 0.2);
+    }
+    50% { 
+        box-shadow: 0 4px 25px rgba(255, 215, 0, 0.4);
+    }
+}
+
+.verified-badge {
+    color: #1da1f2;
+    font-weight: bold;
+    margin-left: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.tweet-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.tweet-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    color: white;
+    flex-shrink: 0;
+}
+
+.tweet-avatar-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.tweet-user {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.tweet-username {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.tweet-handle {
+    color: #666;
+    font-size: 0.85rem;
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tweet-time {
+    color: #666;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.tweet-content {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.tweet-content a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.tweet-content a:hover {
+    color: #5a6fd8;
+    text-decoration: underline;
+}
+
+.tweet-actions {
+    display: flex;
+    gap: 2rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.tweet-action {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.tweet-action:hover {
+    color: #667eea;
+}
+
+.quote-tweet {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 警告メッセージ */
+.warning {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* レスポンシブ */
+@media (max-width: 1225px) {
+    .main-layout {
+        max-width: 875px;
+    }
+}
+
+@media (max-width: 875px) {
+    .sidebar {
+        width: 80px;
+    }
+    
+    .sidebar-nav a {
+        padding: 0.75rem;
+        justify-content: center;
+    }
+    
+    .sidebar-nav .icon {
+        margin-right: 0;
+    }
+    
+    .sidebar-nav a span:not(.icon) {
+        display: none;
+    }
+    
+    .home-button {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .container {
+        margin-left: 80px;
+    }
+    
+    .flame-meter {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .meter-bar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-nav-mobile {
+        display: block;
+    }
+    
+    .sidebar {
+        display: none;
+    }
+    
+    .container {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .main-layout {
+        max-width: 100%;
+    }
+    
+    .flame-meter {
+        display: block;
+        padding: 1rem;
+    }
+    
+    .options {
+        grid-template-columns: 1fr;
+    }
+    
+    .post-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .header,
+    .post-area,
+    .timeline {
+        border-radius: 0;
+    }
+    
+    .tweet {
+        border-radius: 0;
+    }
+}

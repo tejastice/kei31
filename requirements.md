@@ -35,19 +35,16 @@
 ### 4. 作品一覧セクション
 - **カード型レイアウト**: 4作品を横並びで表示
 - **フィーチャード作品**:
-  - 27巻 AIの進化（最新刊バッジ）
-  - AIとCanvaでできる！マンガの作り方（ベストセラーバッジ）
-  - 26巻 エンジニアが100億回繰り返したこと
-  - けいすけの秘密基地（デジタルコミック集）
+  この資料の末尾に記載
 - **もっと見るリンク**: マンガ一覧ページへの遷移
 - **Amazonリンク**: 各作品の購入ページへ直接遷移
 
 ### 5. プログラミングツールセクション
 - **4つのツール紹介**:
+  - Buzz Simulator（最新・フィーチャード）
   - Meta Tag Checker（SEO・SNS対応）
   - 炎上シミュレーター（教育・体験学習）
-  - ポモドーロタイマー（生産性向上）
-  - 忍者手裏剣みだれうち（ゲーム・エンタメ）
+  - Claude Code Udemy講座（AIプログラミング入門）
 - **ツールアクセス**: 各ツールページへの直接リンク
 - **もっと見るリンク**: プログラミング一覧ページへの遷移
 
@@ -230,17 +227,41 @@
 
 **作成日**: 2025年6月3日  
 **作成者**: AIマンガ家けいすけ  
-**バージョン**: 1.0  
-**最終更新**: 2025年6月3日
+**バージョン**: 2.0  
+**最終更新**: 2025年6月3日  
+**更新内容**: 実装完了に伴う実態反映、Buzz Simulator追加、画像パス統一、ファイル構成更新
 
 
 
 ## プログラミングに掲載するプログラムと掲載順
 
-meta tag checker
-炎上シミュレーター
-忍者手裏剣みだれうち
-【これ全部AIでつくりました】Claude Codeで始めるAIプログラミング入門 https://www.udemy.com/course/claude-code-vibe-cording/?referralCode=635F28A339CACD565E5B images/cover-pages/claude-code-udemy.jpg
+### トップページ掲載順（4つ）
+1. **Buzz Simulator**（最新・フィーチャード）
+   - 場所: `/programming/buzz-simulator/`
+   - 画像: `images_sample/screen shot/buzz-simulator.jpg`
+   - 説明: トップインフルエンサーになったような疑似体験ツール
+
+2. **Meta Tag Checker**
+   - 場所: `/programming/meta-tag-checker/`
+   - 画像: `images/meta-tag-checker-screenshot.jpg`
+   - 説明: WebサイトのメタタグをチェックしてSEO最適化をサポート
+
+3. **炎上シミュレーター**
+   - 場所: `/programming/enjo-simulator/`
+   - 画像: `images/enjo-simulator-screenshot.jpg`
+   - 説明: SNS炎上の仕組みを疑似体験できる教育的シミュレーション
+
+4. **【これ全部AIでつくりました】Claude Codeで始めるAIプログラミング入門**
+   - リンク: https://www.udemy.com/course/claude-code-vibe-cording/?referralCode=635F28A339CACD565E5B
+   - 画像: `images/cover-pages/claude-code-udemy.jpg`
+   - 説明: AIと一緒にプログラミングを学べるUdemy講座
+
+### プログラミング一覧ページ掲載順（5つ）
+1. Meta Tag Checker
+2. 炎上シミュレーター
+3. ポモドーロタイマー
+4. 忍者手裏剣みだれうち
+5. Buzz Simulator（最新ツールセクション）
 
 
 
@@ -251,10 +272,29 @@ meta tag checker
 
 ## 作品一覧に掲載するマンガと掲載順
 
-マンガは以下の順で掲載すること
-タイトル, リンク，画像, 表示する文言（無い場合はあなたが考えて）
-AIとCanvaでできる！マンガの作り方	https://amzn.to/4ejIIYe	ai-manga.jpg
-けいすけの秘密基地 27巻 AIの進化	https://amzn.to/3S2HFTv	ksb-27.jpg
-目指せ収益化！SNSマンガ家のためのマネタイズ戦略	https://amzn.to/3TLVaYS	money.jpg
-AIマンガ制作を学べる動画と初心者コミュニティ https://kov.jp/p/r/UUbYU1us kyouzai.jpg リンク先のフォームから
-メルマガ登録していただけると受講できます
+### トップページ掲載順（4作品）
+1. **AIとCanvaでできる！マンガの作り方**（ベストセラーバッジ）
+   - リンク: https://amzn.to/4ejIIYe
+   - 画像: `images/cover-pages/ai-manga.jpg`
+   - 説明: AIマンガ制作の決定版ガイド。Amazonベストセラー獲得
+
+2. **けいすけの秘密基地 27巻 AIの進化**（最新刊バッジ）
+   - リンク: https://amzn.to/3S2HFTv
+   - 画像: `images/cover-pages/ksb-27.jpg`
+   - 説明: 最新刊！AIの進化がもたらす未来の物語
+
+3. **目指せ収益化！SNSマンガ家のためのマネタイズ戦略**
+   - リンク: https://amzn.to/3TLVaYS
+   - 画像: `images/cover-pages/money.jpg`
+   - 説明: マンガ制作で収益を上げるための実践的戦略集
+
+4. **AIマンガ制作を学べる動画と初心者コミュニティ**（講座・コミュニティ）
+   - リンク: https://kov.jp/p/r/UUbYU1us
+   - 画像: `images/cover-pages/kyouzai.jpg`
+   - 説明: リンク先のフォームからメルマガ登録していただけると受講できます
+
+### 実際の作品総数
+- **総作品数**: 35作品以上
+- **画像保存場所**: `images/cover-pages/`（44ファイル）
+- **詳細画像**: `images_sample/`内に9作品の詳細ページ画像
+- **シリーズ作品**: けいすけの秘密基地（1巻〜27巻）、ビットコイン関連、技術解説本など
