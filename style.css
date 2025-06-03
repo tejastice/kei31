@@ -1036,7 +1036,7 @@ body {
 
 @media (max-width: 480px) {
     .hero {
-        margin-top: 160px;
+        margin-top: 0;
         padding: 1.5rem 0;
     }
     
