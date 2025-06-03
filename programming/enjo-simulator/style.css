@@ -526,11 +526,52 @@ body {
 }
 
 @media (max-width: 600px) {
-    .header-nav-mobile {
-        display: block;
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 0.5rem;
+        border-right: none;
+        border-bottom: 1px solid #2f3336;
     }
     
-    .sidebar {
+    .sidebar-nav {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 0;
+    }
+    
+    .sidebar-nav li {
+        margin-bottom: 0;
+        flex: 1;
+    }
+    
+    .sidebar-nav a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        text-align: center;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .sidebar-nav .icon {
+        margin-right: 0;
+        font-size: 1.1rem;
+    }
+    
+    .sidebar-nav a span:not(.icon) {
+        font-size: 0.7rem;
+    }
+    
+    .sidebar-logo {
+        display: none;
+    }
+    
+    .home-button {
+        display: none;
+    }
+    
+    .header-nav-mobile {
         display: none;
     }
     
@@ -541,8 +582,8 @@ body {
     
     .main-layout {
         max-width: 100%;
+        flex-direction: column;
     }
-    
     
     .options {
         grid-template-columns: 1fr;
