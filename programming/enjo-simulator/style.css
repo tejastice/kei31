@@ -572,7 +572,7 @@ body {
     }
     
     .header-nav-mobile {
-        display: none;
+        display: block;
     }
     
     .container {
