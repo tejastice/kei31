@@ -75,28 +75,20 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 900;
     background: linear-gradient(45deg, #f5576c, #f093fb, #4facfe, #00f2fe);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: rainbowText 3s ease-in-out infinite;
+    text-align: center;
+    line-height: 1.2;
 }
 
 @keyframes rainbowText {
     0%, 100% { filter: hue-rotate(0deg); }
     50% { filter: hue-rotate(180deg); }
-}
-
-.subtitle {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 4rem;
-    font-size: 1rem;
-    color: #666;
-    font-weight: 500;
 }
 
 /* メインコンテンツ */
@@ -144,20 +136,6 @@ body {
     z-index: 2;
 }
 
-.countdown-display {
-    font-size: 8rem;
-    font-weight: 900;
-    color: #f5576c;
-    text-shadow: 0 4px 20px rgba(245, 87, 108, 0.5);
-    animation: countdownPulse 1s ease-in-out;
-    margin-bottom: 1rem;
-}
-
-@keyframes countdownPulse {
-    0% { transform: scale(0.5); opacity: 0; }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); opacity: 1; }
-}
 
 .click-count {
     font-size: 4rem;
@@ -171,6 +149,7 @@ body {
 .click-count.animate {
     transform: scale(1.1);
     color: #f5576c;
+    text-shadow: 0 4px 20px rgba(245, 87, 108, 0.5);
 }
 
 .timer-display {
@@ -387,17 +366,10 @@ body {
     }
 
     .header h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         position: static;
         transform: none;
         text-align: center;
-    }
-
-    .subtitle {
-        position: static;
-        transform: none;
-        text-align: center;
-        margin-top: 0.5rem;
     }
 
     .header-content {
@@ -429,9 +401,6 @@ body {
         font-size: 2rem;
     }
 
-    .countdown-display {
-        font-size: 6rem;
-    }
 
     .click-count {
         font-size: 3rem;
@@ -466,9 +435,6 @@ body {
         font-size: 1.5rem;
     }
 
-    .countdown-display {
-        font-size: 4rem;
-    }
 
     .click-count {
         font-size: 2.5rem;

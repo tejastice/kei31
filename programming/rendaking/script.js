@@ -6,7 +6,8 @@ class RendakingGame {
             WAITING: 'waiting',
             COUNTDOWN: 'countdown',
             PLAYING: 'playing',
-            FINISHED: 'finished'
+            FINISHED: 'finished',
+            COOLDOWN: 'cooldown'
         };
         
         this.currentState = this.gameStates.WAITING;
@@ -14,11 +15,13 @@ class RendakingGame {
         this.countdownValue = 3;
         this.playTime = 10;
         this.currentTime = this.playTime;
+        this.cooldownTime = 3; // 終了後のクールダウン時間（秒）
         
         // タイマーID
         this.countdownTimer = null;
         this.gameTimer = null;
         this.displayTimer = null;
+        this.cooldownTimer = null;
         
         // DOM要素の取得
         this.startButton = document.getElementById('start-button');
@@ -60,7 +63,11 @@ class RendakingGame {
         });
         
         // リセットボタン
-        this.resetButton.addEventListener('click', () => this.resetGame());
+        this.resetButton.addEventListener('click', () => {
+            if (this.currentState !== this.gameStates.COOLDOWN) {
+                this.resetGame();
+            }
+        });
         
         // キーボード対応（スペースキー）
         document.addEventListener('keydown', (e) => {
@@ -70,7 +77,7 @@ class RendakingGame {
                     this.startGame();
                 } else if (this.currentState === this.gameStates.PLAYING) {
                     this.incrementClick();
-                } else if (this.currentState === this.gameStates.FINISHED) {
+                } else if (this.currentState === this.gameStates.FINISHED && this.currentState !== this.gameStates.COOLDOWN) {
                     this.resetGame();
                 }
             }
@@ -83,7 +90,6 @@ class RendakingGame {
         this.currentState = this.gameStates.COUNTDOWN;
         this.startButton.classList.add('hidden');
         this.clickButton.classList.remove('hidden');
-        this.countdownDisplay.classList.remove('hidden');
         this.timerDisplay.classList.remove('hidden');
         this.gameMessage.textContent = 'カウントダウン中...';
         
@@ -99,9 +105,11 @@ class RendakingGame {
             if (this.countdownValue > 0) {
                 this.updateCountdownDisplay();
             } else {
-                this.countdownDisplay.textContent = 'スタート!';
+                this.clickCountDisplay.textContent = 'スタート!';
+                this.clickCountDisplay.classList.add('animate');
                 clearInterval(this.countdownTimer);
                 setTimeout(() => {
+                    this.clickCountDisplay.classList.remove('animate');
                     this.startPlaying();
                 }, 500);
             }
@@ -109,17 +117,16 @@ class RendakingGame {
     }
     
     updateCountdownDisplay() {
-        this.countdownDisplay.textContent = this.countdownValue;
+        this.clickCountDisplay.textContent = this.countdownValue;
         // カウントダウンアニメーション
-        this.countdownDisplay.style.animation = 'none';
+        this.clickCountDisplay.classList.add('animate');
         setTimeout(() => {
-            this.countdownDisplay.style.animation = 'countdownPulse 1s ease-in-out';
-        }, 10);
+            this.clickCountDisplay.classList.remove('animate');
+        }, 100);
     }
     
     startPlaying() {
         this.currentState = this.gameStates.PLAYING;
-        this.countdownDisplay.classList.add('hidden');
         this.gameMessage.textContent = '連打中！頑張って！';
         this.currentTime = this.playTime;
         this.clickCount = 0;
@@ -165,7 +172,7 @@ class RendakingGame {
     }
     
     endGame() {
-        this.currentState = this.gameStates.FINISHED;
+        this.currentState = this.gameStates.COOLDOWN;
         
         // タイマー停止
         if (this.gameTimer) {
@@ -176,13 +183,29 @@ class RendakingGame {
         // UI更新
         this.clickButton.classList.add('hidden');
         this.timerDisplay.classList.add('hidden');
-        this.resetButton.classList.remove('hidden');
         this.resultArea.classList.remove('hidden');
         
         // 結果表示
         this.finalScore.textContent = this.clickCount;
         this.resultMessage.textContent = this.getResultMessage(this.clickCount);
         this.gameMessage.textContent = 'ゲーム終了！お疲れ様でした！';
+        
+        // 3秒後にリセットボタンを有効化
+        let cooldownRemaining = this.cooldownTime;
+        this.gameMessage.textContent = `ゲーム終了！${cooldownRemaining}秒後にリセット可能`;
+        
+        this.cooldownTimer = setInterval(() => {
+            cooldownRemaining--;
+            if (cooldownRemaining > 0) {
+                this.gameMessage.textContent = `ゲーム終了！${cooldownRemaining}秒後にリセット可能`;
+            } else {
+                this.currentState = this.gameStates.FINISHED;
+                this.gameMessage.textContent = 'ゲーム終了！お疲れ様でした！';
+                this.resetButton.classList.remove('hidden');
+                clearInterval(this.cooldownTimer);
+                this.cooldownTimer = null;
+            }
+        }, 1000);
     }
     
     getResultMessage(score) {
@@ -252,6 +275,10 @@ class RendakingGame {
             clearInterval(this.gameTimer);
             this.gameTimer = null;
         }
+        if (this.cooldownTimer) {
+            clearInterval(this.cooldownTimer);
+            this.cooldownTimer = null;
+        }
         
         // 状態をリセット
         this.currentState = this.gameStates.WAITING;
@@ -263,7 +290,6 @@ class RendakingGame {
         this.startButton.classList.remove('hidden');
         this.clickButton.classList.add('hidden');
         this.resetButton.classList.add('hidden');
-        this.countdownDisplay.classList.add('hidden');
         this.timerDisplay.classList.add('hidden');
         this.resultArea.classList.add('hidden');
         
@@ -271,7 +297,6 @@ class RendakingGame {
         this.clickCountDisplay.textContent = '0';
         this.timerDisplay.textContent = '10.0';
         this.gameMessage.textContent = '10秒間でボタンを何回押せるかな？';
-        this.countdownDisplay.textContent = '3';
     }
 }
 
