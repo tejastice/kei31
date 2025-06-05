@@ -575,6 +575,10 @@ body {
         display: block;
     }
     
+    .home-button-mobile .home-text {
+        display: none;
+    }
+    
     .container {
         margin-left: 0;
         width: 100%;
