@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>連打王｜10秒間ボタン連打ゲーム</title>
+    <meta name="description" content="10秒間でボタンを何回押せるかを競うシンプルな連打ゲーム。あなたは連打王になれるか？ツールや複数指タップも歓迎！">
+    
+    <!-- Open Graph メタタグ -->
+    <meta property="og:site_name" content="AIマンガ家けいすけ">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:url" content="https://kei31.com/programming/rendaking/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="連打王｜10秒間ボタン連打ゲーム">
+    <meta property="og:description" content="10秒間でボタンを何回押せるかを競うシンプルな連打ゲーム。あなたは連打王になれるか？ツールや複数指タップも歓迎！">
+    <meta property="og:image" content="https://kei31.com/images/rendaking-screenshot.jpg">
+    <meta property="og:image:alt" content="連打王のゲーム画面">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter Card メタタグ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@kei31">
+    <meta name="twitter:creator" content="@kei31">
+    <meta name="twitter:title" content="連打王｜10秒間ボタン連打ゲーム">
+    <meta name="twitter:description" content="10秒間でボタンを何回押せるかを競うシンプルな連打ゲーム。あなたは連打王になれるか？ツールや複数指タップも歓迎！">
+    <meta name="twitter:image" content="https://kei31.com/images/rendaking-screenshot.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-nav-mobile">
+                <a href="../../index.html" class="home-button-mobile">
+                    <span class="home-icon">🏠</span>
+                    <span class="home-text">ホームに戻る</span>
+                </a>
+            </div>
+            <div class="nav-controls">
+                <button onclick="window.location.href='../../index.html'" class="home-btn" title="ホームに戻る">
+                    <span class="home-icon">🏠</span>
+                    <span class="home-text">ホーム</span>
+                </button>
+            </div>
+            <h1>連打王</h1>
+            <p class="subtitle">10秒間ボタン連打ゲーム</p>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="main">
+        <div class="container">
+            <!-- ゲーム画面 -->
+            <div class="game-screen">
+                <!-- 状態表示エリア -->
+                <div class="status-area">
+                    <div id="countdown-display" class="countdown-display hidden">3</div>
+                    <div id="click-count" class="click-count">0</div>
+                    <div id="timer-display" class="timer-display hidden">10.0</div>
+                    <div id="game-message" class="game-message">10秒間でボタンを何回押せるかな？</div>
+                </div>
+
+                <!-- ゲームボタンエリア -->
+                <div class="game-button-area">
+                    <button id="start-button" class="start-button">
+                        <span class="button-text">スタート</span>
+                        <span class="button-icon">🚀</span>
+                    </button>
+                    
+                    <button id="click-button" class="click-button hidden">
+                        <span class="button-text">連打!</span>
+                        <span class="button-icon">👆</span>
+                    </button>
+                    
+                    <button id="reset-button" class="reset-button hidden">
+                        <span class="button-text">もう一度</span>
+                        <span class="button-icon">🔄</span>
+                    </button>
+                </div>
+
+                <!-- 結果表示エリア -->
+                <div id="result-area" class="result-area hidden">
+                    <div class="result-score">
+                        <span class="score-label">最終記録</span>
+                        <span id="final-score" class="score-number">0</span>
+                        <span class="score-unit">回</span>
+                    </div>
+                    <div id="result-message" class="result-message">お疲れ様でした！</div>
+                </div>
+            </div>
+
+            <!-- 説明エリア -->
+            <div class="info-area">
+                <div class="info-card">
+                    <h3>🎮 遊び方</h3>
+                    <ol>
+                        <li>スタートボタンを押してゲーム開始</li>
+                        <li>3秒間のカウントダウン後、連打スタート</li>
+                        <li>10秒間でできるだけ多くボタンを押そう</li>
+                        <li>時間終了で結果発表！</li>
+                    </ol>
+                </div>
+                
+                <div class="info-card">
+                    <h3>💡 コツ</h3>
+                    <ul>
+                        <li>複数の指を使ってタップ</li>
+                        <li>連打ツールの使用もOK</li>
+                        <li>リズムよく素早く押す</li>
+                        <li>画面を大きくして押しやすく</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🏆 目標記録</h3>
+                    <ul>
+                        <li>初心者: 50回</li>
+                        <li>上級者: 200回</li>
+                        <li>エキスパート: 500回</li>
+                        <li>連打王: 1000回</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024-2025 AIマンガ家けいすけ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
