@@ -190,22 +190,11 @@ class RendakingGame {
         this.resultMessage.textContent = this.getResultMessage(this.clickCount);
         this.gameMessage.textContent = 'ゲーム終了！お疲れ様でした！';
         
-        // 3秒後にリセットボタンを有効化
-        let cooldownRemaining = this.cooldownTime;
-        this.gameMessage.textContent = `ゲーム終了！${cooldownRemaining}秒後にリセット可能`;
-        
-        this.cooldownTimer = setInterval(() => {
-            cooldownRemaining--;
-            if (cooldownRemaining > 0) {
-                this.gameMessage.textContent = `ゲーム終了！${cooldownRemaining}秒後にリセット可能`;
-            } else {
-                this.currentState = this.gameStates.FINISHED;
-                this.gameMessage.textContent = 'ゲーム終了！お疲れ様でした！';
-                this.resetButton.classList.remove('hidden');
-                clearInterval(this.cooldownTimer);
-                this.cooldownTimer = null;
-            }
-        }, 1000);
+        // 3秒後にリセットボタンを有効化（メッセージ表示なし）
+        this.cooldownTimer = setTimeout(() => {
+            this.currentState = this.gameStates.FINISHED;
+            this.resetButton.classList.remove('hidden');
+        }, this.cooldownTime * 1000);
     }
     
     getResultMessage(score) {
@@ -276,7 +265,7 @@ class RendakingGame {
             this.gameTimer = null;
         }
         if (this.cooldownTimer) {
-            clearInterval(this.cooldownTimer);
+            clearTimeout(this.cooldownTimer);
             this.cooldownTimer = null;
         }
         
