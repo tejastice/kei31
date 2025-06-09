@@ -934,3 +934,32 @@ function resetGame() {
     document.getElementById('conversation-log').innerHTML = '';
     updateClientCards();
 }
+
+// ヒーロー動画の音声制御
+document.addEventListener('DOMContentLoaded', function() {
+    const heroVideoSection = document.getElementById('hero-video-section');
+    const heroVideo = document.getElementById('hero-video');
+    const audioHint = document.querySelector('.audio-hint');
+    let audioEnabled = false;
+
+    // 動画エリアクリックで音声ON/OFF
+    heroVideoSection.addEventListener('click', function() {
+        if (!audioEnabled) {
+            heroVideo.muted = false;
+            audioEnabled = true;
+            audioHint.textContent = '🔇 クリックで音声をOFF';
+            audioHint.style.background = 'rgba(255, 0, 0, 0.2)';
+            
+            // 音声ONの視覚的フィードバック
+            heroVideoSection.style.boxShadow = '0 10px 30px rgba(255, 215, 0, 0.4)';
+            setTimeout(() => {
+                heroVideoSection.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+            }, 1000);
+        } else {
+            heroVideo.muted = true;
+            audioEnabled = false;
+            audioHint.textContent = '🔊 クリックで音声が流れます';
+            audioHint.style.background = 'rgba(255, 255, 255, 0.2)';
+        }
+    });
+});
