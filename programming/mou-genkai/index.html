@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>退職代行もう限界 - 退職代行体験シミュレーター</title>
+    <meta name="description" content="退職代行業者として困難な退職交渉を体験できるシミュレーター。リアルな会話と4択選択肢で退職代行の大変さを学習。">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="退職代行もう限界 - 退職代行体験シミュレーター">
+    <meta property="og:description" content="退職代行業者として困難な退職交渉を体験できるシミュレーター。10往復の厳しいやり取りで退職代行の大変さを学習。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="images/mou-genkai.jpg">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="900">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="退職代行もう限界">
+    <meta name="twitter:description" content="退職代行業者として困難な退職交渉を体験できるシミュレーター">
+    <meta name="twitter:image" content="images/mou-genkai.jpg">
+    <meta name="twitter:image:alt" content="退職代行もう限界 - クライアント選択画面">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="header-nav-mobile">
+                <a href="../../index.html" class="home-button-mobile">
+                    <span class="home-icon">🏠</span>
+                    <span class="home-text">ホームに戻る</span>
+                </a>
+            </div>
+            <div class="nav-controls">
+                <button onclick="window.location.href='../../index.html'" class="home-btn" title="ホームに戻る">
+                    <span class="home-icon">🏠</span>
+                    <span class="home-text">ホーム</span>
+                </button>
+            </div>
+            <h1>退職代行もう限界</h1>
+            <p class="subtitle">〜 退職代行体験シミュレーター 〜</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- クライアント選択画面 -->
+        <section id="client-selection" class="game-screen active">
+            <div class="notice-banner">
+                <p><strong>⚠️ 注意事項:</strong> この退職のストーリーは創作であり、実際にこのように退職代行が行われるわけではありません。</p>
+            </div>
+            <h2>依頼者を選択してください</h2>
+            <p class="description">退職代行業者として、以下の依頼者の中から担当するクライアントを選んでください。</p>
+            
+            <div class="client-grid">
+                <div class="client-card" data-client-id="1">
+                    <div class="client-info">
+                        <h3>田中 健太</h3>
+                        <div class="client-details">
+                            <span class="gender">男性 (28歳)</span>
+                            <span class="industry">IT業界 - システムエンジニア</span>
+                            <span class="company">○○システム株式会社</span>
+                        </div>
+                        <div class="reason">
+                            <strong>退職理由:</strong><br>
+                            月100時間超の残業が続き、体調を崩している
+                        </div>
+                        <div class="difficulty">難易度: <span class="high">高</span></div>
+                    </div>
+                </div>
+
+                <div class="client-card" data-client-id="2">
+                    <div class="client-info">
+                        <h3>佐藤 美咲</h3>
+                        <div class="client-details">
+                            <span class="gender">女性 (25歳)</span>
+                            <span class="industry">小売業 - 販売員</span>
+                            <span class="company">△△ストア</span>
+                        </div>
+                        <div class="reason">
+                            <strong>退職理由:</strong><br>
+                            上司からのセクハラ行為が続いている
+                        </div>
+                        <div class="difficulty">難易度: <span class="high">高</span></div>
+                    </div>
+                </div>
+
+                <div class="client-card" data-client-id="3">
+                    <div class="client-info">
+                        <h3>山田 雄一</h3>
+                        <div class="client-details">
+                            <span class="gender">男性 (35歳)</span>
+                            <span class="industry">製造業 - 工場作業員</span>
+                            <span class="company">□□製作所</span>
+                        </div>
+                        <div class="reason">
+                            <strong>退職理由:</strong><br>
+                            職場でのいじめが原因で精神的に限界
+                        </div>
+                        <div class="difficulty">難易度: <span class="medium">中</span></div>
+                    </div>
+                </div>
+
+                <div class="client-card" data-client-id="4">
+                    <div class="client-info">
+                        <h3>鈴木 香織</h3>
+                        <div class="client-details">
+                            <span class="gender">女性 (30歳)</span>
+                            <span class="industry">医療業界 - 看護師</span>
+                            <span class="company">◇◇病院</span>
+                        </div>
+                        <div class="reason">
+                            <strong>退職理由:</strong><br>
+                            人手不足で休みが取れず、家庭との両立が困難
+                        </div>
+                        <div class="difficulty">難易度: <span class="medium">中</span></div>
+                    </div>
+                </div>
+
+                <div class="client-card" data-client-id="5">
+                    <div class="client-info">
+                        <h3>伊藤 大輔</h3>
+                        <div class="client-details">
+                            <span class="gender">男性 (24歳)</span>
+                            <span class="industry">営業 - 営業職</span>
+                            <span class="company">◯◯商事</span>
+                        </div>
+                        <div class="reason">
+                            <strong>退職理由:</strong><br>
+                            ノルマのプレッシャーで毎日が辛い
+                        </div>
+                        <div class="difficulty">難易度: <span class="low">低</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 電話交渉画面 -->
+        <section id="phone-negotiation" class="game-screen">
+            <div class="phone-interface">
+                <div class="phone-header">
+                    <h2>📞 <span id="company-name"></span> への電話中...</h2>
+                    <div class="client-info-small">
+                        担当: <span id="current-client"></span>
+                    </div>
+                </div>
+
+                <div class="conversation-area">
+                    <div id="conversation-log" class="conversation-log">
+                        <!-- 会話ログがここに表示される -->
+                    </div>
+                </div>
+
+                <div class="choices-area">
+                    <div id="question" class="question"></div>
+                    <div id="choices" class="choices">
+                        <!-- 4択選択肢がここに表示される -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 完了画面 -->
+        <section id="completion" class="game-screen">
+            <div class="completion-content">
+                <h2>🎉 退職手続き完了！</h2>
+                <div id="success-message" class="success-message">
+                    <!-- 成功メッセージがここに表示される -->
+                </div>
+                <div class="client-thanks">
+                    <p><span id="completed-client"></span>さんからのメッセージ:</p>
+                    <div id="thanks-message" class="thanks-message">
+                        <!-- 感謝メッセージがここに表示される -->
+                    </div>
+                </div>
+                <div class="sns-share-section">
+                    <h3>🎉 成功をシェアしよう！</h3>
+                    <div class="sns-buttons">
+                        <button id="share-twitter" class="sns-btn twitter">
+                            <span class="sns-icon">🐦</span>
+                            <span class="sns-text">Xでシェア</span>
+                        </button>
+                        <button id="share-line" class="sns-btn line">
+                            <span class="sns-icon">💬</span>
+                            <span class="sns-text">LINEでシェア</span>
+                        </button>
+                        <button id="copy-result" class="sns-btn copy">
+                            <span class="sns-icon">📋</span>
+                            <span class="sns-text">結果をコピー</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="completion-actions">
+                    <button id="next-client-btn" class="btn btn-primary">次のクライアントを選択</button>
+                    <button id="restart-btn" class="btn btn-secondary">最初からやり直す</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="disclaimer">
+            <p><strong>免責事項:</strong> これは教育目的のシミュレーションゲームです。実際の退職代行サービスや法的アドバイスではありません。</p>
+        </div>
+        <div class="credits">
+            <p>&copy; 2025 AIマンガ家けいすけ</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
