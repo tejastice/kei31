@@ -41,8 +41,8 @@
 
 ### 5. プログラミングツールセクション
 - **4つのツール紹介**:
-  - Buzz Simulator（最新・フィーチャード）
-  - Meta Tag Checker（SEO・SNS対応）
+  - AIけいすけ（最新・フィーチャード、Discord AIアシスタント）
+  - Buzz Simulator（バズ体験シミュレーター）
   - 炎上シミュレーター（教育・体験学習）
   - Claude Code Udemy講座（AIプログラミング入門）
 - **ツールアクセス**: 各ツールページへの直接リンク
@@ -236,15 +236,15 @@
 ## プログラミングに掲載するプログラムと掲載順
 
 ### トップページ掲載順（4つ）
-1. **Buzz Simulator**（最新・フィーチャード）
-   - 場所: `/programming/buzz-simulator/`
-   - 画像: `images_sample/screen shot/buzz-simulator.jpg`
-   - 説明: トップインフルエンサーになったような疑似体験ツール
+1. **AIけいすけ**（最新・フィーチャード）
+   - リンク: https://ai-keisuke.kei31.com/
+   - 画像: `images/ai-keisuke-screenshot.jpg`
+   - 説明: Discord上でリアクション一つで使える次世代AIアシスタント！X投稿生成、音声文字起こし、解説機能など5つの便利機能を搭載
 
-2. **Meta Tag Checker**
-   - 場所: `/programming/meta-tag-checker/`
-   - 画像: `images/meta-tag-checker-screenshot.jpg`
-   - 説明: WebサイトのメタタグをチェックしてSEO最適化をサポート
+2. **Buzz Simulator**
+   - 場所: `/programming/buzz-simulator/`
+   - 画像: `images/buzz-simulator-screenshot.jpg`
+   - 説明: トップインフルエンサーになったような疑似体験ツール
 
 3. **炎上シミュレーター**
    - 場所: `/programming/enjo-simulator/`
