@@ -162,11 +162,12 @@ manga/
 
 ## 掲載するマンガと掲載順
 
-最新刊には、27巻 AIの進化を表示してください
+最新刊には、28巻 を表示してください
 
 マンガは以下の順で掲載すること
-タイトル, リンク，画像
+タイトル	リンク	画像
 AIとCanvaでできる！マンガの作り方	https://amzn.to/4ejIIYe	ai-manga.jpg
+けいすけの秘密基地 28巻 6月のけいすけの様子がおかしい件	https://amzn.to/40sTV49	ksb-28.jpg
 けいすけの秘密基地 27巻 AIの進化	https://amzn.to/3S2HFTv	ksb-27.jpg
 ビットコインを創った人	https://amzn.to/3T2SxRB	satoshi-nakamoto.jpg
 けいすけの秘密基地 26巻 エンジニアが100億回繰り返したこと	https://amzn.to/44ytVY1	ksb-26.jpg
