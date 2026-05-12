@@ -17,3 +17,6 @@ Thumbs.db
 
 # scriptフォルダ
 scripts/
+
+# 個人メモ（URL等）
+url_memo.txt
